@@ -7,6 +7,7 @@ import { ZyloProvider } from "@/lib/zylo/provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Navbar } from "@/components/crm/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Décor Rental CRM - Elegant Event Management",
+  description: "AI-powered CRM for décor rental companies. Manage inventory, bookings, and client relationships in real-time.",
 };
 
 export default function RootLayout({
@@ -45,6 +46,7 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <TooltipProvider>
+                <Navbar />
                 {children}
                 <Toaster />
                 <Sonner />

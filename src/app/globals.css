@@ -1,97 +1,139 @@
 @import "tailwindcss";
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Import Professional Fonts - Inter for UI, JetBrains Mono for code */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 :root {
-  /* Pure white background with crisp black text */
+  /* Font System */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Professional CRM Color Palette - Light Mode */
   --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  --foreground: 220 15% 20%;
 
-  /* Clean white cards with black text */
+  /* Cards with subtle elevation */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  --card-foreground: 220 15% 20%;
 
-  /* Popovers with white background */
+  /* Popovers */
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  --popover-foreground: 220 15% 20%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
+  /* Primary: Professional Blue for actions */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Secondary: Neutral for secondary actions */
+  --secondary: 220 15% 96%;
+  --secondary-foreground: 220 15% 20%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted: Subtle backgrounds */
+  --muted: 220 15% 96%;
+  --muted-foreground: 220 10% 45%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Accent: Hover states and highlights */
+  --accent: 217 91% 95%;
+  --accent-foreground: 217 91% 40%;
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Destructive: Error states and warnings */
+  --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Status Colors for CRM */
+  --success: 142 76% 45%;
+  --success-foreground: 0 0% 100%;
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
 
-  /* Sidebar: Clean white with black text */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --info: 199 89% 48%;
+  --info-foreground: 0 0% 100%;
+
+  /* Inventory Status Colors */
+  --available: 142 76% 45%;
+  --low-stock: 38 92% 50%;
+  --unavailable: 0 84% 60%;
+  --checked-out: 199 89% 48%;
+
+  /* Borders and inputs */
+  --border: 220 15% 88%;
+  --input: 220 15% 88%;
+  --ring: 217 91% 60%;
+
+  /* Modern rounded corners */
+  --radius: 0.5rem;
+
+  /* Sidebar for navigation */
+  --sidebar-background: 220 20% 98%;
+  --sidebar-foreground: 220 15% 20%;
+  --sidebar-primary: 217 91% 60%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-accent: 217 91% 95%;
+  --sidebar-accent-foreground: 217 91% 40%;
+  --sidebar-border: 220 15% 88%;
+  --sidebar-ring: 217 91% 60%;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
+  /* Dark Mode - Professional dark theme */
+  --background: 220 25% 8%;
+  --foreground: 220 10% 95%;
 
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+  --card: 220 25% 10%;
+  --card-foreground: 220 10% 95%;
 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 220 25% 10%;
+  --popover-foreground: 220 10% 95%;
 
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 220 20% 15%;
+  --secondary-foreground: 220 10% 95%;
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted: 220 20% 15%;
+  --muted-foreground: 220 10% 65%;
 
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --accent: 217 91% 20%;
+  --accent-foreground: 217 91% 80%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --sidebar-background: 240 5.9% 10%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 224.3 76.3% 48%;
+  /* Status Colors for Dark Mode */
+  --success: 142 76% 45%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+
+  --info: 199 89% 48%;
+  --info-foreground: 0 0% 100%;
+
+  /* Inventory Status Colors - Dark Mode */
+  --available: 142 76% 45%;
+  --low-stock: 38 92% 50%;
+  --unavailable: 0 84% 60%;
+  --checked-out: 199 89% 48%;
+
+  --border: 220 20% 20%;
+  --input: 220 20% 20%;
+  --ring: 217 91% 60%;
+
+  --sidebar-background: 220 25% 10%;
+  --sidebar-foreground: 220 10% 95%;
+  --sidebar-primary: 217 91% 60%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --sidebar-accent: 220 20% 15%;
+  --sidebar-accent-foreground: 217 91% 80%;
+  --sidebar-border: 220 20% 20%;
+  --sidebar-ring: 217 91% 60%;
 }
 
 @theme {
@@ -164,40 +206,251 @@ All colors MUST be HSL.
   }
 }
 
+/* ================================================
+   GLOBAL CSS RESET & BASE STYLES
+   ================================================ */
+
 * {
   border-color: hsl(var(--border));
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
+/* ================================================
+   TYPOGRAPHY SYSTEM
+   ================================================ */
+
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-weight: 700;
   letter-spacing: -0.025em;
   color: hsl(var(--foreground));
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
 }
 
-/* Clean button styles */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--accent-foreground));
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: hsl(var(--muted));
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background-color: hsl(var(--muted));
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+/* ================================================
+   FORM ELEMENT DEFAULTS
+   ================================================ */
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 button {
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Subtle shadows for depth */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input,
+select,
+textarea {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsla(var(--ring) / 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.375rem;
+  display: inline-block;
+}
+
+/* ================================================
+   UTILITY CLASSES
+   ================================================ */
+
+/* Professional shadows for cards and elevations */
 .shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Status badge utilities */
+.status-available {
+  background-color: hsla(var(--available) / 0.1);
+  color: hsl(var(--available));
+  border: 1px solid hsla(var(--available) / 0.2);
+}
+
+.status-low-stock {
+  background-color: hsla(var(--low-stock) / 0.1);
+  color: hsl(var(--low-stock));
+  border: 1px solid hsla(var(--low-stock) / 0.2);
+}
+
+.status-unavailable {
+  background-color: hsla(var(--unavailable) / 0.1);
+  color: hsl(var(--unavailable));
+  border: 1px solid hsla(var(--unavailable) / 0.2);
+}
+
+.status-checked-out {
+  background-color: hsla(var(--checked-out) / 0.1);
+  color: hsl(var(--checked-out));
+  border: 1px solid hsla(var(--checked-out) / 0.2);
+}
+
+/* Smooth transitions for interactive elements */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }
